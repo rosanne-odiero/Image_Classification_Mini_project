@@ -16,7 +16,8 @@ def convert_to_onnx():
     inp = model.preprocess_numpy(img).unsqueeze(0) 
 
     # export to onnx
-    torch.onnx.export(model, inp, "pytorch_model_weights.onnx")
+    torch.onnx.export(model, inp, "pytorch_model_weights.onnx", input_names=["input"])
+
 
 if __name__ == "__main__":
     convert_to_onnx()
